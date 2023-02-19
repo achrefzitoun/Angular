@@ -1,0 +1,54 @@
+<form #f="ngForm">
+    <h4> Informations générales </h4>
+    <div class="mb-3">
+        <label>Nom</label>
+        <input type="text" class="form-control" name="nom" [(ngModel)]="atelier.nom" pattern="[a-zA-Z]{1,5000}" required
+            #nom="ngModel">
+        <div class="alert alert-danger" *ngIf="nom.invalid && nom.touched">
+            <div *ngIf="nom.errors?.['required']"> Nom is required </div>
+            <div *ngIf="nom.errors?.['pattern']"> Nom incorrect </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="text" class="form-control" name="email" [(ngModel)]="atelier.email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,3}$" required #email="ngModel">
+        <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+            <div *ngIf="email.errors?.['required']"> Email is required </div>
+            <div *ngIf="email.errors?.['pattern']"> Email incorrect </div>
+        </div>
+    </div>
+    <h4> Informations de payement </h4>
+    <div class="mb-3">
+        <label>Type de carte</label>
+        <input type="text" class="form-control" name="type" [(ngModel)]="atelier.type" required #type="ngModel">
+        <div class="alert alert-danger" *ngIf="type.invalid && type.touched">
+            <div> Type de carte is required </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label>Numero carte</label>
+        <input type="number" min="1000000000000000" max="9999999999999999" class="form-control" name="num" [(ngModel)]="atelier.num" required #num="ngModel">
+        <div class="alert alert-danger" *ngIf="num.invalid && num.touched">
+            <div *ngIf="num.errors?.['required']"> num is required </div>
+            <div *ngIf="num.errors?.['min']"> numero doit etre de 16 chiffres </div>
+            <div *ngIf="num.errors?.['max']"> numero doit etre de 16 chiffres </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label>Date expiration</label>
+        <input type="text" class="form-control" name="date" [(ngModel)]="atelier.date" required #date="ngModel">
+        <div class="alert alert-danger" *ngIf="date.invalid && date.touched">
+            <div> Date is required </div>
+        </div>
+    </div>
+    <div class="mb-3" *ngIf="f.controls['type'].valid && f.controls['num'].valid && f.controls['date'].valid">
+        <label>Code</label>
+        <input type="text" class="form-control" name="code" [(ngModel)]="atelier.code" required #code="ngModel">
+        <div class="alert alert-danger" *ngIf="code.invalid && code.touched">
+            <div *ngIf="code.errors?.['required']"> Code is required </div>
+            <div *ngIf="code.errors?.['pattern']"> Code incorrect </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Ajouter</button>
+</form>

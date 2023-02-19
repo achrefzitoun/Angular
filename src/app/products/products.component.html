@@ -10,7 +10,6 @@
                 <button class="btn btn-primary" (click)="like(p)">Like</button>
                 <button class="btn btn-primary" (click)="buy(p)" [disabled]="i.quantity == 0" >Buy</button>
                 <button class="btn btn-primary" [routerLink]="['/product',i.id]" >Details</button>
-                
             </div>
         </div>
     </div>
