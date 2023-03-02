@@ -4,6 +4,7 @@ import { DetailProductsComponent } from './detail-products/detail-products.compo
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { OffresEmploiComponent } from './offres-emploi/offres-emploi.component';
+import { ProductViewComponent } from './product-view/product-view.component';
 import { ProductsComponent } from './products/products.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 

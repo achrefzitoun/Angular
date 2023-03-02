@@ -12,6 +12,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { FormsModule } from '@angular/forms';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { ProductViewComponent } from './product-view/product-view.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TemplateDrivenFormComponent } from './template-driven-form/template-dri
     DetailProductsComponent,
     ArticlesComponent,
     FormulaireComponent,
-    TemplateDrivenFormComponent
+    TemplateDrivenFormComponent,
+    ProductViewComponent
   ],
   imports: [
     BrowserModule,

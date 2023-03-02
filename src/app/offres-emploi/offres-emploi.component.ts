@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Emplois } from '../core/model/Emplois';
+import { MethodesService } from '../services/methodes.service';
 
 @Component({
   selector: 'app-offres-emploi',
@@ -13,9 +14,9 @@ export class OffresEmploiComponent implements OnInit {
   clickMessage = '';
   e!:Emplois;
   Result!:Emplois;
-
+  cal!:number;
   
-  constructor() { }
+  constructor(private ms : MethodesService) { }
   ngOnInit(): void {
     this.listEmploi=[
       {reference : "1" , titre : "Responsable" , entreprise : "Actia" , etat : true},
@@ -45,5 +46,10 @@ export class OffresEmploiComponent implements OnInit {
       }
     }
   }
+
+  calculMethode(){
+    this.cal=this.ms.getNumberof(this.listEmploi, "etat", true)
+  }
+
 
 }
